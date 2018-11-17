@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from django.conf.urls import include, url
+from django.conf.urls import url,include
 
 urlpatterns = [
-   url('admin/', admin.site.urls),
-   url('music/', include("music.url")),
+   url(r'^admin/', admin.site.urls),
+   url(r'^music/', include("music.url")),
    
 ]
 
