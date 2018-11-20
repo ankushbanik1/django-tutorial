@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ankush</title>
+</head>
+<body>
+<ul>
+    {%  for a in all_albums %}
+    <li>
+        <a href="/music/{{ a.id }}/">{{ a.genre }}
+
+        </a>
+    </li>
+
+     {% endfor %}
+</ul>
+<marquee direction = "top" ><h1>WELL COME TO MY WEB</h1>.</marquee>
+</body>
+</html>

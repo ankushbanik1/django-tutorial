@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ankush</title>
+</head>
+<body>
+<ul>
+    {%  for a in all_movie %}
+    <li>
+        <a href="/testapp/{{ a.id }}/">{{ a.actor }}
+
+        </a>
+    </li>
+
+     {% endfor %}
+</ul>
+<marquee direction = "top" ><h1>WELL COME TO MY BEKAR WEB</h1>.</marquee>
+</body>
+</html>
