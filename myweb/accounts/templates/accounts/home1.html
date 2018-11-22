@@ -1,6 +1,5 @@
-
 {% extends 'base.html' %}
-<html>
+<!-- <html>
     <head>
         <title>
             helooooo well come
@@ -23,7 +22,7 @@
 
 </head>
 
-{% block body1 %}
+
 
     <body>
         <div class="container">
@@ -40,12 +39,24 @@
         </div>
     </body>
 
-    <body>
-       
-<p>
-    hello guyess i am here
-</p>
-        {% endblock %}
-        
-    </body>
-</html>
+    
+</html> -->
+{%  block body %}
+
+<div class="container">
+<h1>
+    wellcome
+</h1>
+<p> you can log in here </p>
+<h1>login</h1>
+ <form method="post">
+     {%  csrf_token %}
+     {{ form.as_p }}
+      <button type="submit"> sign in</button>
+
+
+ </form>
+
+</div>
+
+{%  endblock  %}
