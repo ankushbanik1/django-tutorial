@@ -2,11 +2,18 @@
 
 
 {%  block body %}
+
+
 <div class="container">
+        <h1 style=" background-color:aqua">REGISTRATION FORM</h1>
 <form method="post">
     {% csrf_token %}
 
     {{ form.as_p }}
+<dl class="dl-horizontal"><dt>email:</dt>
+    <input  type="text">
+</dl>
 </form>
+<button class="btn btn-primary">submit</button>
 </div>
 {%  endblock %}

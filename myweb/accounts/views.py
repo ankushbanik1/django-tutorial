@@ -2,7 +2,11 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponse 
 from django.contrib.auth import login, authenticate,logout
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+
+
+
 def home(request):
 
     number=[1,2,3,4,5]
@@ -20,3 +24,6 @@ def register(request):
         form= UserCreationForm()
         args={'form':form}
         return render(request,'accounts/reg_form.html', args)        
+def profile(request):
+    args={'user':request.user}
+    return render(request,"accounts/profile.html", args)

@@ -1,5 +1,5 @@
 
-<!-- <html>
+ <html>
     <head>
         <title>
             helooooo well come
@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
-
+<!--
 
         {% load staticfiles %}
         <link rel="stylesheet"  href="{% static 'account/style.css' %}"  type="text/css">
@@ -44,6 +44,11 @@
 {%  block body %}
 
 <div class="container">
+        <ul class=" nav navbar-nav  navbar-right">
+                <li>
+                  <a href="/accounts/">home</a>
+                </li>
+              </ul>
 <h1>
     wellcome
 </h1>
@@ -52,7 +57,7 @@
  <form method="post">
      {%  csrf_token %}
      {{ form.as_p }}
-      <button type="submit"> sign in</button>
+      <button  class="btn btn-success" href="/account/login" type="submit"> sign in</button>
 
 
  </form>
