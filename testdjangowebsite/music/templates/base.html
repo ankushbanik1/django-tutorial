@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>home</title>
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <nav class=" navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar navbar-header">
+                <button class="navbar-toggle" type="button " data-target="#topNavBar" data-toggle="collapse" >
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               
+               
+                
+            </div>
+            <!-- items-->
+            <div class="collapse navbar-collapse " id="#TopNavBar">
+                <ul class="nav navabr-nav">
+                    <li class="active"></li>
+                    <a href="{% url 'details' %}">
+                        <span class="glyphicon glyphicon-th-list" aria-hidden="true" ></span>&nbsp;
+                            Album
+                        </a>
+                   
+                   
+                    <a href="{% url 'details' %}">
+                        <span class="glyphicon glyphicon-cd" aria-hidden="true" ></span>&nbsp;
+                             contact
+                            </a>
+                        
+                   <a href="{% url 'details' %}">
+                         <span class="glyphicon glyphicon-music" aria-hidden="true" ></span>&nbsp;
+                                 home
+                                </a>
+                            
+                </ul>
+                <form class="navbar-form navbar-left"  role="search" method="get" action="#" >
+                    <div class="form-group">
+                    <input type="text" class="form-control" name="q" value="">
+                    </div>
+                     <button class="btn btn-success"  type="submit" > search</button>
+                </form>
+                <ul class=" nav navbar-nav navbar-right">
+                        <li class="">
+                                <a href="{% url 'details' %}">
+                                    <span class="glyphicon glyphicon-plus " aria-hidden="true" ></span>&nbsp;
+                                add album
+                                </a>
+                            </li>
+                            <li class="">
+                                    <a href="{% url 'details' %}">
+                                        <span class="glyphicon glyphicon-off" aria-hidden="true" ></span>&nbsp;
+                                     logout
+                                    </a>
+                                </li>
+                </ul>
+            
+            </div>
+        </div>
+    </nav>
+{%  block body %}
+{% endblock %}
+{%  block details %}
+{% endblock %}
+
+</body>
+</html>

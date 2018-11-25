@@ -1,20 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ankush</title>
-</head>
+{% extends 'base.html' %}
+{%  block body %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+   
 <body>
-<ul>
-    {%  for a in all_albums %}
-    <li>
-        <a href="/music/{{ a.id }}/">{{ a.genre }}
+        
+       
+            <div>
+<marquee direction = "top" ><h1>WELL COME TO MY WEB</h1></marquee>
 
-        </a>
-    </li>
-
-     {% endfor %}
-</ul>
-<marquee direction = "top" ><h1>WELL COME TO MY WEB</h1>.</marquee>
 </body>
+
+<body>
+    {% endblock %}
+</bod>
+
+
+
+
+
+
+
+
+
+
+
+
 </html>

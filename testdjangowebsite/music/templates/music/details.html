@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block details %}
+{%  load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{%  static 'music/style.css' %} "/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<h1>  {{ album.album_title }}</h1>
+<h3>
+    {{ artist }}
+</h3>
+<ul>
+    {% for song in album.song_set.all %}
+    <li>({ song.song_title}}- {{song.file_type}}</li>
+    {% endfor %}
+
+    <h1>hello</h1>
+</ul>
+{%  endblock %}

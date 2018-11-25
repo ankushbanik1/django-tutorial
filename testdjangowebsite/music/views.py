@@ -1,15 +1,44 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Album
+
 from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import render,redirect
+from django.contrib.auth import authenticate,login,logout
+from django.views.generic import View
+from .forms import UserForm
+from .models import Album
 
 def index(request):
-    all_albums= Album.objects.all()
+   
+    return render(request,'in.html')
+def details(request):
     
-    context={
-        'all_albums': all_albums,
-    }
-    
-    return render(request,'in.html', context)
-def details(request,album_id):
-    return HttpResponse("<h2> ditais for album id:" +str(album_id)+"</h2>" )
+    return render(request, 'music/details.html' ) 
+class UserFormView(View):
+     form_class = UserForm
+     template_name='music/registration.html'
+
+
+
+
+#display blank form
+     def get(self,request):
+         form=self.form_class(None)
+         return render(request,self.template_name,{'form':form})
+     def post(self,request):
+         form=self.form_class(request.POST)
+         if form.is_valid():
+             user= form.save(commit=False)
+             #cleaned (normalize) data
+             username= form.cleaned_data['username']
+             password= form.cleaned_data['password']
+             user.set_password(password)
+             user.save()
+
+             user= authenticate(username=username, password=password)
+             if user is not None:
+                 if user.is_active:
+                     login(request,user)
+                     return redirect('index')
+         return render(request,self.template_name,{'form':form})
