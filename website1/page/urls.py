@@ -1,7 +1,16 @@
 from django.http import HttpResponse
 from django.conf.urls import url
 from . import views
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import AuthenticationForm
+
+
 urlpatterns=[
-    url(r'^$',views.home),
-    url(r'^contact/$', views.contact)
+    url(r'^$',views.home , name="home"),
+    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^register/$', views.register, name='register'),
+
+    
+    url(r'^login/$', LoginView.as_view(template_name='tem1/login.html'), name="login"),
 ]
+

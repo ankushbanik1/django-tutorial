@@ -1,34 +1,22 @@
+{% extends 'base.html' %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
+    <body>
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <div class="container">
-            <div class="  container-fluid jumbotron" style="background-color:rgb(47, 179, 255)">
-        <h1>Well Come to Our Home Page</h1>
-    </div>
-    <div class="  btn-group btn-group-justified">
-    <a href="#" class="btn-group btn-info btn-lg "> Home</a>
-    <a href="https://www.nsankush.blogspot.in" class="btn-group btn-primary btn-lg"> Blog</a>
-    <a href="/page/contact" class="btn-group btn-danger btn-lg ">Contact</a>
-
-    <a href="#" class="btn-group btn-success btn-lg"> Home</a>
 
     
+    {% block body %}
+    <h1>  well come to our home </h1>
+   {{ register }}
 
-    
+    {% endblock %}
 
-    
-
-    </div>
 </div>
+
+    
 </body>
 </html>
