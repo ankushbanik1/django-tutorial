@@ -14,6 +14,11 @@
    {{ register }}
 
     {% endblock %}
+    {%  if user.is_authenticated %}
+<h1> your name is :{{  user.username }}</h1>
+{% else %}
+<h2>you are not logged in</h2>
+{% endif %}
 
 </div>
 
