@@ -112,8 +112,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 rest_framework={
     'DEFAULT_PERMISSION_CLASSESS':('rest_framework.permissions.IsAuthenticated',),
-    'DEFAULT_AUTHENTICATION_CLASSESS',''
+    'DEFAULT_AUTHENTICATION_CLASSESS' :('rest_framework_simplejwt.authentication.JWTAuthentication',)
 }
-'
-
-'
