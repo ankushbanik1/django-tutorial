@@ -1,24 +1,16 @@
-
 {% extends 'base.html' %}
 {% block login %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-   
-    <title>login| Home</title>
-    
-</head>
-<body>
-    <h2>Login</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-    
-      <button class="btn btn-success"  type="submit">Login</button>
-    </form>
-   
-</body>
-{% endblock %}
-</html>
+<div class="container">
+        <h1>Welcome</h1>
+        <p>
+            You can log in here!
+        </p>
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    {% endblock %}

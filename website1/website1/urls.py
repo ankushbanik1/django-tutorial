@@ -19,8 +19,11 @@ urlpatterns = [
     
      
     url(r'^api/token/$', TokenObtainView.as_view()),
+    path('sendmail/',views1.send),
 
     url(r'^api/token/refresh/$',TokenRefreshView.as_view()),
+    path('api-auth/',include('rest_framework.urls'))
+
 
 
 

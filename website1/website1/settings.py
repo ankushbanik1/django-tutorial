@@ -114,3 +114,8 @@ rest_framework={
     'DEFAULT_PERMISSION_CLASSESS':('rest_framework.permissions.IsAuthenticated',),
     'DEFAULT_AUTHENTICATION_CLASSESS' :('rest_framework_simplejwt.authentication.JWTAuthentication',)
 }
+EMAIL_HOST ='ankushbanik123@gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER = 'ankushbanik123@gmail.com'
+EMAIL_USE_TLS=True
+EMAIL_USE_SSL = False
