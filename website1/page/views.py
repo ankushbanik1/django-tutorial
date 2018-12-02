@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login
-from django.contrib.auth.forms import UserCreationForm,UserChangeForm
+from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -10,6 +10,7 @@ from .models import Language,Paradigm,Programmer
 from django.contrib.auth.models import User
 from .serializer import Languageserializer,Paradigmserializer ,Programmerserializer
 from django.urls import reverse
+from page.forms import editprofileform
 
 def home(request):
     return render(request,"tem1/home.html")
@@ -91,12 +92,31 @@ def profile(request):
 #             return render(request,'tem1/edit_profile.html',args)
 def edit_profile(request):
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=request.user)
+        form = editprofileform(request.POST, instance=request.user)
 
         if form.is_valid():
             form.save()
             return redirect( '/page/profile')
     else:
-        form = UserChangeForm(instance=request.user)
+        form = editprofileform(instance=request.user)
         args = {'form': form}
         return render(request, 'tem1/edit_profile.html', args)
+
+
+
+def changepassword(request):
+    if request.method=='POST':
+        form= PasswordChangeForm(request.POST, user=request.user)
+
+         
+        if form.is_valid():
+            form.save()
+            return redirect( '/page/profile')
+        else:
+            return redirect('/page/changepassword')    
+    else:
+        form = PasswordChangeForm(user=request.user)
+
+        args = {'form': form}
+        return render(request, 'tem1/changepassword.html', args)
+

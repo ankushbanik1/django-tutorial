@@ -1,0 +1,11 @@
+{% extends 'tem1/base.html' %}
+
+{% block content %}
+<h3>Forget password</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">submit</button>
+</form>
+{% endblock %}
