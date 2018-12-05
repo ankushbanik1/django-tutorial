@@ -39,6 +39,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'website1.middleware.LoginRequriedmiddleware'
 ]
 
 ROOT_URLCONF = 'website1.urls'
@@ -110,6 +111,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'website1/media')
 rest_framework={
     'DEFAULT_PERMISSION_CLASSESS':('rest_framework.permissions.IsAuthenticated',),
     'DEFAULT_AUTHENTICATION_CLASSESS' :('rest_framework_simplejwt.authentication.JWTAuthentication',)
@@ -122,3 +125,10 @@ EMAIL_USE_SSL = False
 
 
 EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
+LOGIN_URL = '/page/login/'
+
+LOGIN_EXEMPT_URLS ={
+    r'^page/login/$',
+    r'^page/logout/$',
+    r'^page/register/$',
+}

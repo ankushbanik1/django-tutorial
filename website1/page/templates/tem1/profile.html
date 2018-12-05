@@ -1,5 +1,4 @@
 
-
 {% extends 'base.html' %}
 
 
@@ -11,14 +10,15 @@
    {% block pro %}
    <div class="container">
       <p><h1 >||||   profile informations  ||||</h1></p></div>
-      <div  class=" jumbotron">
+      <div  class=" jumbotron" style="background-color:aqua">
    <p><h2>HELLO SIR YOUR  USER NAME IS :{{ user }}</h2></p>
         <p>AND YOUR  FIRST NAME IS:{{ user.first_name }}</p>
    <P>{{ user.last_name }} IS YOUR LAST NAME </P>
-<P> AND SIR WE HAVE YOUR EMAIL ADDRESS ALSO=={{ user.email }}</P>
-       </p>
-       <br>
+<P> AND SIR WE HAVE YOUR EMAIL ADDRESS ALSO=={{ user.email }}</P><br>
 
+<img src="{{ user.Userprofile.image.url}}"width='250'>
+      
+       
 
        <a href="/page/profile/edit" class="btn btn-success" type="reset">Update Info</a><br><br><br>
        <a href="/page/changepassword" class="btn btn-danger" type="reset">Change Password</a>

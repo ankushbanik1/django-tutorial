@@ -10,14 +10,18 @@
 
     
     {% block body %}
-    <h1>  well come to our home </h1>
+    <div class="container-fluid">
+        <div class="  container-fluid jumbotron" style="background-color:rgb(52, 233, 106)">
+    <h1>Well Come to Our Home Page</h1>
+    </div>
    {{ register }}
 
-    {% endblock %}
     {%  if user.is_authenticated %}
 <h1> your name is :{{  user.username }}</h1>
 {% else %}
 <h2>you are not logged in</h2>
+
+
 {% endif %}
 
 </div>
@@ -25,3 +29,5 @@
     
 </body>
 </html>
+
+{% endblock %}

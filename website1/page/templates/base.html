@@ -10,12 +10,8 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-    <div class="container">
-            <div class="  container-fluid jumbotron" style="background-color:rgb(47, 179, 255)">
-        <h1>Well Come to Our Home Page</h1>
-    </div>
-    <div class="  btn-group btn-group-justified">
+    
+   <!--  <div class="  btn-group btn-group-justified">
     <a href="/page" class="btn-group btn-info btn-lg "> Home
         <span class=" glyphicon  glyphicon-home " ></span>
     </a>
@@ -43,11 +39,63 @@
         <button class="btn btn-black" type="submit">search</button>
        </div>
    </nav>
+     -->
+<div class="container-fluid">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid ">
+            <div class="navbar-header">
+                <button type="button" class=" navbar-toggle  collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+
+                        <span class="icon-bar"></span>
+                </button>
+                
+                <a class="navbar-brand" href="/">Home</a>
+
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav">
+                   
+                    
+                    <li><a href="/page/contact">Contact</a></li>
+                        <li><a href="/page/profile">Profile</a></li>
+                    <li><a href="{% url 'contact' %}">blog</a></li>
+                    <li><a href="/page/changepassword">Changepassword</a></li>
+                    <li><a href="/admin/logout/">Logout</a></li>
+                    
+
+                </ul>
+                {% else %}
+                <ul class="nav navbar-nav">
+                        <li><a href="/page/login">Login</a></li>
+                        
+                       
+                        
+                        <li><a href="/page/register">Register</a></li>
+                        
     
+                    </ul>
+                    {%  endif %}
+                <nav class="navbar-form navbar-right" role="search" action='#' method= 'get'>
+                        <div class="form-group">
+                         <input class="form-control" type="text" name="q"  value="">
+                         <button class="btn btn-info" type="submit">search</button>
+                        </div>
+                    </nav>
+            </div>
+        </div>
+</div>
+
+
 
    {% block body %}
    
    {% endblock %}
+
    {% block reg %}
    {% endblock %}
 
@@ -61,6 +109,8 @@
  {% block edit %}
  {% endblock %}
  {% block password %}
+ {% endblock %}
+ {% block logout %}
  {% endblock %}
 
     </div>
