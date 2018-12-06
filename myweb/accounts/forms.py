@@ -1,3 +1,13 @@
+from django.contrib.auth.models import User
+from django import forms
+from django.contrib.auth.forms import UserChangeForm,UserCreationForm
+
+from django.contrib.auth.models import User
+
+
+
+
+
 class registrationform(UserCreationForm):
     email=forms.EmailField(required=True)
 
@@ -16,7 +26,9 @@ def save(self,commit=True):
     user.password=email_data['email']
 
 
-
     if commit:
         user.save()
     return user
+
+
+

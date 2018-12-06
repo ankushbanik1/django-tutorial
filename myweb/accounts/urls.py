@@ -11,5 +11,5 @@ urlpatterns=[
     url(r'^register/$', views.register, name='register'),
     url(r'^home/$', views.home, name='home'),
     url(r'^profile/$', views.profile, name='profile')
-
+   
 ]

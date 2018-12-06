@@ -6,7 +6,27 @@
     <p>
         You can log in here!
     </p>
-    <h2>Login</h2>
+    <h2>Login</h2>{% extends 'base.html' %}
+
+    {%  block body %}
+    
+    <div class="container">
+    <h1>
+        wellcome
+    </h1>
+    <p> you can log in here </p>
+    <h1>login</h1>
+     <form method="post">
+         {%  csrf_token %}
+         {{ form.as_p }}
+          <button  class='btn btn-danger' type="submit"> sign in</button>
+    
+    
+     </form>
+    
+    </div>
+    
+    {%  endblock  %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

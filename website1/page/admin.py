@@ -8,5 +8,13 @@ admin.site.register (Programmer)
 
 admin.site.register (Paradigm)
 
-admin.site.register(Userprofile)
+
 # Register your models here.
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display=('user','user_info','phone_number')
+
+    def user_info(self,object):
+        return object.city
+      
+
+admin.site.register(Userprofile,UserProfileAdmin)

@@ -5,6 +5,9 @@ from django.contrib.auth import login, authenticate,logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
+from django.contrib.auth.decorators import login_required
+
+
 
 
 def home(request):
@@ -13,7 +16,7 @@ def home(request):
     name="ankush"
     args={'myname':name,'numbers':number}
     return render(request,'accounts/home.html',args)
-
+@login_required
 def register(request):
     if request.method=='POST':
         form= UserCreationForm(request.POST)
@@ -27,3 +30,5 @@ def register(request):
 def profile(request):
     args={'user':request.user}
     return render(request,"accounts/profile.html", args)
+
+
