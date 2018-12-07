@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block profile %}
+<div class="container-fluid">
+<h1 class="leader"> Hello sir Wellcome to your Profile Page </h1>
+<div class="jumbotron">
+<form method="post">
+    {% csrf_token %}
+    <h3>Here Is Your first_name :{{ user.first_name}}</h3>
+    <h3> Here is your last Name: {{ user.last_name}}</h3>
+   
+    <h3>Here is your Email:{{ user.email}}</h3>
+
+   
+</form>
+</div>
+</div>
+{% endblock %}

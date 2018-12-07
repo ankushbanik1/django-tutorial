@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block reg %}
+<div class="container">
+<h1> REGISTER HERE......!! </h1>
+<form method="post" action="{%  url 'register' %}">
+    {% csrf_token  %}
+
+  {{ form }}
+
+
+  <button class="btn btn-success" value="register" >submit</button>
+</form>
+</div>
+
+{% endblock %}
+

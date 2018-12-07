@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import url
 from.import views
+from page import views as v
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^page/', include('page.urls')),
      url(r'^$', views.home,name='home'),
+     url(r'^accounts/profile/', v.profile,name='profile'),
+
 ]
