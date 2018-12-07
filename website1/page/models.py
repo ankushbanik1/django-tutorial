@@ -22,6 +22,12 @@ class Programmer(models.Model):
     name=models.CharField(max_length=200)        
     def __str__(self):
         return self.name
+class Userprofilemanager(models.Manager):
+    def get_Queryset(self):
+        return super(Userprofilemanager, self).get_Queryset().filter(city='london')
+
+
+
 
 class Userprofile(models.Model):
     user = models.CharField(max_length=30)
@@ -29,5 +35,8 @@ class Userprofile(models.Model):
     city = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=30)
     image= models.ImageField(upload_to='profile_img',blank=True)
+    london= Userprofilemanager()
+
+
     def __str__(self):
         return self.user

@@ -15,6 +15,11 @@ class UserProfileAdmin(admin.ModelAdmin):
 
     def user_info(self,object):
         return object.city
+
+    def get_queryset(self,request):
+        Queryset = super(UserProfileAdmin,self).get_queryset(request)
+        Queryset= Queryset.order_by('city')
+        return Queryset    
       
 
 admin.site.register(Userprofile,UserProfileAdmin)
