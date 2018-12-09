@@ -6,10 +6,19 @@
 <div class="jumbotron">
 <form method="post">
     {% csrf_token %}
+    <h3>Here Is Your first_name :{{ user.username}}</h3>
     <h3>Here Is Your first_name :{{ user.first_name}}</h3>
     <h3> Here is your last Name: {{ user.last_name}}</h3>
    
     <h3>Here is your Email:{{ user.email}}</h3>
+    <a  href="/page/change_password/" type="submit" class="btn btn-info btn-lg">CHANGE PASSWORD</a>
+  
+
+
+
+
+
+    <a href=" /page/edit_profile/" type="submit" class="btn btn-success btn-lg">UPDATE INFO.</a>
 
    
 </form>
