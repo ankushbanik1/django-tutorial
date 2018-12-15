@@ -1,0 +1,24 @@
+{%  extends 'base.html' %}
+
+{% block home1 %}
+<div class="container">
+    <h1>hello</h1>
+
+    <form method="post" >
+        {% csrf_token %}
+        
+        {{ form.post }}
+<br>
+        <button class=" btn btn-success" type="submit" >click me</button>
+    </form>
+   <h2>{{ text }}</h2>
+   {% for post in posts %}
+   <h1>{{ post.post }}</h1>
+   <h2>{{ post.date }}</h2>
+   {% endfor %}
+</div>
+
+
+
+
+{% endblock %}

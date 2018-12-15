@@ -12,10 +12,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views1.home1),
-   
+    url(r'home/', include('home.urls')),
     url(r'^page/', include('page.urls')),
     url(r'^language/',views.language.as_view()), 
     url(r'^programmer/',views.programmer.as_view()),
+    url(r'^accounts/profile/$', views.profile, name='profile'),
 
     url(r'^paradigm/',views.paradigm.as_view()),
     

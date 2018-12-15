@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm,PasswordChangeForm
 from django.contrib.auth import authenticate,login
 from page.forms import editprofileForm
+from django.contrib.auth.decorators import login_required
 
 
 def register(request):
@@ -29,7 +30,7 @@ def profile(request):
     return render(request,'tem/profile.html',args)
 
 
-
+@login_required
 def edit_profile(request):
 
     if request.method == 'POST':
@@ -44,7 +45,7 @@ def edit_profile(request):
         return render(request, 'tem/edit_profile.html', args)
 
 
-
+@login_required
 def change_password(request):
 
     if request.method == 'POST':
