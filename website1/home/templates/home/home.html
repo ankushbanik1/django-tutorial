@@ -2,6 +2,9 @@
 
 {% block home1 %}
 <div class="container">
+    <div class="col-md-8">
+
+    
     <h1>hello</h1>
 
     <form method="post" >
@@ -17,7 +20,17 @@
    <h2>{{ post.date }}</h2>
    {% endfor %}
 </div>
+<div class="col-md-4"><h2>
+    Switch User : HERE---
+</h2>
+{% for user in users %}
 
+<li><a href="{% url 'profile' %}"> <h2>{{ user.username }}</h2></a>
+</li>
+
+{% endfor %}
+</div>
+</div>
 
 
 

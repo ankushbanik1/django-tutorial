@@ -3,6 +3,10 @@ from django.views.generic import TemplateView
 from .forms import Homeforms
 from django.shortcuts import render,redirect
 from home.models import Post
+from django.contrib.auth.models import User
+
+
+
 class homeview(TemplateView):
     template_name='home/home.html'
 
@@ -11,8 +15,11 @@ class homeview(TemplateView):
     def get(self,request):
         form =Homeforms()
         posts=Post.objects.all()
-        args={'form':form,'posts':posts}
+        users=User.objects.all()
+
+        args={'form':form,'posts':posts,'users':users}
         return render(request,self.template_name,args)
+        
 
 
     def post(self,request):
@@ -27,5 +34,5 @@ class homeview(TemplateView):
 
 
 
-        args={'form':form , 'text':text}
+        args={'form':form , 'text':text }
         return render(request,self.template_name,args)
