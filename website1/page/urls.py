@@ -12,6 +12,7 @@ urlpatterns=[
       url(r'^logout/',auth_views.LogoutView.as_view(template_name='tem1/logout.html'),name='logout'),
     url(r'^admin/logout/$', views.logout, name='logout'),
     url(r'^profile/edit/$', views.edit_profile, name='edit_profile'),
+    
     url(r'^changepassword/$', views.changepassword, name='changepassword'),
     
 

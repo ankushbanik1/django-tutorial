@@ -25,7 +25,7 @@
 </h2>
 {% for user in users %}
 
-<li><a href="{% url 'profile' %}"> <h2>{{ user.username }}</h2></a>
+<li><a href="{% url 'profile_vk' pk=user.pk %}"> <h2>{{ user.username }}</h2></a>
 </li>
 
 {% endfor %}

@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^language/',views.language.as_view()), 
     url(r'^programmer/',views.programmer.as_view()),
     url(r'^accounts/profile/$', views.profile, name='profile'),
-
+    url(r'^accounts/profile/(?P<pk>\d+)/$', views.profile, name='profile_vk'),
     url(r'^paradigm/',views.paradigm.as_view()),
     
      
