@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
+from page.forms import editprofileForm
 def home(request):
     return render(request,'tem/home.html')
 
@@ -14,23 +15,49 @@ def about(request):
     return render(request,'tem/about.html')    
 
 
+# def register(request):
 def register(request):
     if request.method=='POST':
+
         form=UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-
-            user=form.cleaned_data['username']
+            username=form.cleaned_data['username']
             password=form.cleaned_data['password']
-            user=authenticate(username='username',password='password')
+
+            user=authenticate(username=username,password=password)
             login(request,user)
-            return redirect('home')
+            return redirect('login')
 
     else:
         form=UserCreationForm()
-        args={'form':form} 
-        return render(request,'tem/register.html',args)       
+        args={'form':form}
+        return render(request,'tem/register.html',args) 
 
 
+# def edit_profile (request):
 
+#     if request.method=='POST':
 
+#         form=editprofile_form(request.POST,instance=request.user)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('login')
+
+#     else:
+#         form=editprofile_form(instance=request.user)
+#         args={'form':form}
+#         return render(request,'tem/edit_form.html',args)    
+    
+def edit_profile(request):
+
+    if request.method == 'POST':
+        form = editprofileForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect( 'login')
+    else:
+        form = editprofileForm(instance=request.user)
+        args = {'form': form}
+        return render(request, 'tem/edit_form.html', args)

@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^logout/',auth_view.LogoutView.as_view(template_name='tem/home.html'),name='logout'),
     url(r'^register/', views.register, name="register"),
     url(r'^about/', views.about, name="about"),
-
+    url(r'^edit_profile/', views.edit_profile, name="edit_profile"),
+ 
 ]
