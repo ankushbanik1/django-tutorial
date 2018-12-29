@@ -145,17 +145,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#myPage">AnkushBanikOfficial</a>
+      <a class="navbar-brand" href="/page/">AnkushBanikOfficial</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       {% if user.is_authenticated %}
       <ul class="nav navbar-nav navbar-right">
-     <li><a href="#myPage">Profile</a></li>
+     <li><a href="/accounts/profile/">Profile</a></li>
         <li><a href="#band">BAND</a></li>
         <li><a href="#tour">TOUR</a></li>
         <li><a href="#contact">CONTACT</a></li>
         <li><a href="/page/logout/">LOGOUT</a></li>
         <li><a href="/page/about/">ABOUT</a></li>
+        <li><a href="/page/change_password/">CHANGE PASSWORD</a></li>
 
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
@@ -168,7 +169,7 @@
           {% else %}
           <ul class="nav navbar-nav navbar-right">
               <li><a href="/page/login/">Login</a></li> <li><a href="/page/register/">Register</a></li> <li><a href="#myPage">Profile</a></li>
-              <li><a href="/page/about/">ABOUT</a></li>
+   
           </ul>
           {% endif %}
         </li>
@@ -194,6 +195,13 @@
 {% endblock %}
 {% block edit_form %}
 {% endblock %}
+{% block profile %}
+{% endblock %}
+{% block about %}
+{% endblock %}
+{% block password_form %}
+{% endblock %}
+
 
 </body>
 </html>

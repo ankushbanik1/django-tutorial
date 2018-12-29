@@ -7,6 +7,7 @@ from page import views as vi
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^page/',include('page.urls')),
-   
+    url(r'^accounts/profile/', vi.profile, name="profile"),
+
 
 ]

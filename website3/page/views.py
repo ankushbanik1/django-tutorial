@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm,UserChangeForm
+from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
@@ -27,7 +27,7 @@ def register(request):
 
             user=authenticate(username=username,password=password)
             login(request,user)
-            return redirect('login')
+            return redirect('page')
 
     else:
         form=UserCreationForm()
@@ -48,6 +48,7 @@ def register(request):
 #         form=editprofile_form(instance=request.user)
 #         args={'form':form}
 #         return render(request,'tem/edit_form.html',args)    
+@login_required    
     
 def edit_profile(request):
 
@@ -61,3 +62,26 @@ def edit_profile(request):
         form = editprofileForm(instance=request.user)
         args = {'form': form}
         return render(request, 'tem/edit_form.html', args)
+
+
+@login_required    
+
+def profile(request):
+       return render(request,'tem/profile.html')
+
+
+def change_password(request):
+
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.POST,user=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect( '/accounts/profile')
+        else:
+            return redirect('/page/change_password')        
+            
+    else:
+        form = PasswordChangeForm(user=request.user)
+        args = {'form': form}
+        return render(request, 'tem/change_password.html', args)
