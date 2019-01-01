@@ -48,5 +48,18 @@ class jsonCBV(HttpResponseMixin,View):
         json_data=json.dumps({'hello'})
         return self.render_to_httpresponse(json_data)   
 
+from testapp.models import employee
+from django.core.serializers import serialize        
+class emplyeeditails(View): 
+    def get(self,request,*args,**kwargs):
+        emp=employee.objects.get(id=id)
+        json_data=serialize('json',[emp,])
+        return HttpResponse(json_data,content_type='application/json')
 
-        
+
+
+class emplyeelist(View): 
+    def get(self,request,*args,**kwargs):
+        qs=employee.objects.all()
+        json_data=serialize('json',[emp,])
+        return HttpResponse(json_data,content_type='application/json')        
