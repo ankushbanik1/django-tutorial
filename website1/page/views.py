@@ -122,7 +122,6 @@ def changepassword(request):
     if request.method=='POST':
         form= PasswordChangeForm(request.POST, user=request.user)
 
-         
         if form.is_valid():
             form.save()
             return redirect( '/page/profile')

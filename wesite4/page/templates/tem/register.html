@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block reg %}
+<div class="container">
+    <div class="jumbotron">
+<h1 class="display-4">wellcome to our registration</h1>
+<form method="post">
+{% csrf_token %}
+{{ forms }}
+<button class="btn btn-success">click </button>
+</form>
+    </div>
+</div>
+{% endblock %}
