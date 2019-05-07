@@ -7,13 +7,41 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">  
   <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Tangerine">  
-<link rel="stylesheet" href="{% static 'social/css/master.css' %}">
+<link rel="stylesheet" href="{% static 'C:\Users\ankush\Documents\GitHub\django-tutorial\socialblog\page\__pycache__\static\master.css' %}">
 
           <title>socialblog</title>
    
 </head>
 <body>
-
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">AnkushBanikOfficial</a>
+      </div>
+      {% if user.is_authenticated %}
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/profile/{{ profile }}">Profile</a></li>
+        <li><a href="/page/login/{{ login }}">Login </a></li>
+        <li><a href="/page/logout{{ logout }}">LogOut </a></li>
+        <li><a href="
+          /page/signup{{ signup }}">Registration </a></li>
+      </ul>
+    {% else %}
+          <ul class="nav navbar-nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/page/login/{{ login }}">Login </a></li>
+              <li><a href="/page/logout{{ logout }}">LogOut </a></li>
+              <li><a href="
+                /page/signup{{ signup }}">Registration </a></li>
+            </ul>
+{% endif %}
+      <form type="get" action="." style="margin: 0">
+          <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
+          <button  class="btn btn-info" id="search_submit" type="submit" >Submit</button>
+      </form>
+    </div>
+  </nav>
     {% block content %}
 
 {% endblock %}
@@ -25,6 +53,9 @@
 {% endblock %}
 {% block test %}
 {% endblock %}
+{% block Profile %}
+{% endblock %}
+
 
 
 </body>

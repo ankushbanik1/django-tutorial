@@ -12,4 +12,5 @@ urlpatterns =[
     name='logout'),
      url(r'signup/$',views.SignUp.as_view(),
     name='signup')
+       
 ]
