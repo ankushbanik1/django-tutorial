@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{%  block contact  %}
+<html>
+<head>
+    <title>Send Emails</title>
+</head>
+<body>
+    <h2>Send Email</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Enter and email id to start sending emails">
+        <textarea type="text" placeholder="enter messege"></textarea>
+        <button type="submit">Send Email Now !</button>
+    </form>
+</body>
+</html>
+{% endblock %}

@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordCh
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
-from page.forms import editprofileForm
+from page.forms import ContactForm
 def home(request):
     return render(request,'tem/home.html')
 
@@ -70,6 +70,8 @@ def profile(request):
        return render(request,'tem/profile.html')
 
 
+
+
 def change_password(request):
 
     if request.method == 'POST':
@@ -85,3 +87,17 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
         args = {'form': form}
         return render(request, 'tem/change_password.html', args)
+
+
+# email contact us.................................................
+
+
+from django.core.mail import send_mail, BadHeaderError
+
+def send_email(request):
+    if request.method == 'POST':
+        email = request.POST.get("email")
+        send_mail('Subject goes here', 'Message goes here', 'no-reply@authapplciation.com', [email], fail_silently=False)
+        return HttpResponse("Mail Sent to " + email)
+
+    return render(request, 'tem/contact.html')
