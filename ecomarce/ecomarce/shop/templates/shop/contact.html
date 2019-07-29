@@ -1,0 +1,243 @@
+{% extends "shop/base.html"  %}
+
+{% block contact  %}
+{% load static %}
+<style>
+    
+#particles-js{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+.jumbotron{
+background-color: #74B9FF;
+}
+.button1{
+    align-self: auto;
+    align-items: center;
+}
+
+
+.submitButton{
+	background-color: #e0e7e9;
+	color: #000000;
+	font-size: 30px;
+	font-style: inherit;
+	cursor: pointer;
+  
+    padding-top: 10px;
+    padding: 10px;
+   
+   
+}
+
+
+
+</style>
+ 
+<div class="container-fluid">
+<div class="jumbotron text-center">
+<h1 >
+        We’d love to hear from you
+</h1><br>
+<h3 class="lead">     Whether you have a question about features, trials, pricing, need a demo, or anything else, our team is ready to answer all your questions
+    </h3>
+</div>
+<br>
+<br>
+<br>
+<!-- <div class="row text-center">
+        <div class="col-md-6">
+            <img class="img-1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj9_BuIVt6SM2NACg1IOQEtA37qSPIHShY7XhuRT0YKA87gSyYuQ">
+                <br><h3> <strong>Sales Enquiries</strong> </h3>
+             <br>
+          
+             <h5>
+                Interested in any of our products? Talk to our experts today <br>
+                
+                US: +1 (855) 747 6767 | Australia: +61 1800 861 302 <br>
+                
+                UK: +44 8081 698 824 | +44 189 280 5040 <br>
+            
+                India: +91 44 6667 8040 | Germany: +49 305 884 9246    <br>
+                
+                France: +33 17 585 0312 | Sweden: +46 10 138 9041 </h5>
+                
+              <h5>  Spain: +34 51 888 0864 | Netherlands: +31 85 001 3362 <br>
+                
+                Finland & Estonia: +358 75 326 7796 | Denmark: +45 7875 4730 <br>
+                
+                Email: support@freshdesk.com | EU-sales@freshworks.com  <br>
+                
+                (Availability 24*5)
+            </h5> 
+                </div>
+        <div class="col-md-6">.col-sm-4</div>
+      </div></div> -->
+       <div class="container">     
+<section class="pb-xl ">
+        <div class="l-page container-fluid  " data-scroll-target="" id ="">
+            <div class="row">
+            <div class="col-md-6 ">
+                  
+  
+<img src="data:image/png;base64,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" alt="">
+        <h3>Sales Enquiries</h3>
+      
+      <p class="pt-xs sub-text">Interested in any of our products? Talk to our experts today</p>
+      
+      <p class="pt-xs sub-text"><strong class="lead">US:</strong> +1 (855) 747 6767 |<strong class="lead"> Australia:</strong> +61 1800 861 302</p>
+      
+      <p class="pt-xs sub-text"><strong class="lead">UK: </strong>+44 8081 698 824 |<strong class="lead"fc> </strong >+44 189 280 5040</p>
+      
+      <p class="pt-xs sub-text"><strong class="lead">India: </strong>+91 9091203984 | <strong class="lead">Germany:</strong> +49 305 884 9246</p>
+      
+      <p class="pt-xs sub-text"><strong class="lead">France: </strong>+33 17 585 0312 | <strong class="lead">Sweden:</strong> +46 10 138 9041</p>
+      
+      <p class="pt-xs sub-text"><strong class="lead">Spain:</strong> +34 51 888 0864 | <strong class="lead">Netherlands:</strong> +31 85 001 3362</p>
+      
+      <p class="pt-xs sub-text"><strong class="lead">Finland &amp; Estonia:</strong> +358 75 326 7796 | <strong class="lead">Denmark:</strong> +45 7875 4730</p>
+      
+      <p  class="pt-xs sub-text"><strong class="lead" >Email:</strong> support@Ankushbanik.com | EU-sales@freshworks.com</p>
+      
+      <p class="lead" class="pt-xs sub-text">(Availability 24*5)</p>
+      
+      
+      </div>
+      <!-- contact -->
+      <div class="shadow  bg-white rounded"></div>
+      <div class="card" style="width: 50%;">
+            <div class="card-body">
+                <div class="text-center card-title"><h2>Contact Us</h2></div>
+            <form action="">
+                    <label></label>    <input placeholder=" Enter Full Name" type="text" class="form-control form-control-lg">
+                    <label></label>    <input required placeholder="Enter  Email" type="text" class="form-control form-control-lg">
+                    <label></label>    <textarea placeholder="Enter a massege" type="text" class="form-control form-control-lg">
+               </textarea>
+               <br>
+               <br>
+               <input type="submit" class="textField submitButton  btn btn-info btn-lg"  data-wow-duration="1.5s" data-wow-delay="1.3s" value="send message">
+            </form>
+            </div>
+            </div>
+          </div>
+
+      </div>
+      </div>
+
+
+      </section>
+      <!-- Footer -->
+<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+        <!-- Footer Elements -->
+        <div class="container">
+      
+          <!--Grid row-->
+          <div class="row">
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-12 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(78).jpg" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(79).jpg" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-12 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(81).jpg" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(82).jpg" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(84).jpg" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+          </div>
+          <!--Grid row-->
+      
+        </div>
+        <!-- Footer Elements -->
+      
+      </footer>
+      <!-- Footer -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                <a href="https://ankushportfolio.tk/"> Ankushbanik.com</a>
+              </div>
+      <script src="js/particle-script.js"></script>
+    
+{% endblock %}

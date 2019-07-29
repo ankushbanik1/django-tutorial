@@ -1,194 +1,199 @@
 
+{% extends "shop/base.html"  %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <title>Document</title>
-</head>
+{% block body %}
 <style>
-.col-md-3
-{
-    display: inline-block;
-    margin-left: -4px;
-    
-}
-.col-md-3 img{
-    width: 100px;
-    height: auto;
-}
-body .carousel-indicators li {
-    background-color: blue;
 
-}
 
-body .carousel-control-prev-icon,
-body .carousel-control-next-icon
-{
-background-color: blue;
-} 
-body .no-padding{
-margin-left: 0;
-padding-right:0;
-}
 </style>
-<body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">CWHTextUtils.com</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-              
-                  </ul>
-                </div>
-                <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-              </nav>
-              
-              <div  id="demo" class="carousel slide" data-ride="caro"></div>
-              <ul class="courousel-indicators">
-                    <li data-target="#demo" data-slide-to="0" ></li>
-                    <li data-target="#demo" data-slide-to="1" ></li>
-                    <li data-target="#demo" data-slide-to="2" ></li>
-                </ul>
-                <div class="container carousel-inner no-padding">
-                        <div class="carousel-item active">
-                  <div  class="col-xs-3 col-sm-3 col-md-3">
+
+<header>
+	<div id="header-hero">
+    <div class="header-bg"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412561/E-commerce%20landing%20page/header/header-image_3x.jpg" alt="header-image" /> </div>
+    <div class="header-content">
+      <p class="heading-1">fashion collection 2019</p>
+      <h1>wellcome to brand<span class="logo-style">y</span> unique store</h1>
+      <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <div class="button">
+        <a href="/shop/product"> <h5>SHOP</h5></a>
+      </div>
+    </div>
+  </div>
+</header>
+<section id="summer-collection">
+  <div class="container">
+    <div class="sc-content">
+      <h1>summer collection</h1>
+      <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It
+        has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+      <a href="#">discover now</a> </div>
+    <div class="sc-media">
+      <div class="sc-media-bg"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412556/E-commerce%20landing%20page/summer-collection/cold-fashion-man-women_3x.jpg" alt="sc-image" /> </div>
+    </div>
+  </div>
+</section>
+<div>
+<div class="container">
+    {% for product, range, nSlides in allProds %} 
+    <h4 class="my-4">{{product.0.category}}-Recomended For You</h4>
+<div class="row">
+<div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+    {% for i in range %}
+    
+    <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}" ></li>
+    
+    {% endfor %}
+  </ul>
+
+  <div class="container carousel-inner no-padding">
+
+    <div class="carousel-item active">
+    
+  
+{% for i in product %}
+
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <div class="card" style="width: 18rem;">
+          <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">{{i.product_name}}</h6>
+            <p class="card-text">{{i.desc}}</p>
+            <a href="#" class="btn-outline-primary"><h5>Rs.{{i.price}}</h5></a>
+<br>
+<button id="pr{{i.id}}" class="btn btn-primary cart">ADD TO CART</a>
+ <a href="/shop/product/{{i.id}}"> <button id="qv{{i.id}}" class="btn btn-info cart">Quick View</a>
+  </div></a>
+        </div>
+      </div>
      
 
-                    <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="..." alt="Card image cap">
-                                <div class="card-body">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                              </div> 
-                              <div class="card" style="width: 18rem;">
-                                    <img class="card-img-top" src="..." alt="Card image cap">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                  </div>
-                                  <div class="card" style="width: 18rem;">
-                                        <img class="card-img-top" src="..." alt="Card image cap">
-                                        <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                                        </div>
-                                      </div>
-                                      <div class="card" style="width: 18rem;">
-                                            <img class="card-img-top" src="..." alt="Card image cap">
-                                            <div class="card-body">
-                                              <h5 class="card-title">Card title</h5>
-                                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                                            </div>
-                                          </div>
-                                         
-                                              </div>  
+      {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+    </div>
+    <div class="carousel-item">
+    {% endif %}
+      {% endfor %}
+     
+  </div>
 
-                  </div>
-                  <div class="carousel-item active">
-                        <div  class="col-xs-3 col-sm-3 col-md-3">
-           
-      
-                          <div class="card" style="width: 18rem;">
-                                      <img class="card-img-top" src="..." alt="Card image cap">
-                                      <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                      </div>
-                                    </div> 
-                                    <div class="card" style="width: 18rem;">
-                                          <img class="card-img-top" src="..." alt="Card image cap">
-                                          <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                          </div>
-                                        </div>
-                                        <div class="card" style="width: 18rem;">
-                                              <img class="card-img-top" src="..." alt="Card image cap">
-                                              <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                              </div>
-                                            </div>
-                                            <div class="card" style="width: 18rem;">
-                                                  <img class="card-img-top" src="..." alt="Card image cap">
-                                                  <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                  </div>
-                                                </div>
-                                               
-                                                    </div>  
-      
-                        </div>
-                        <div class="carousel-item ">
-                                <div  class="col-xs-3 col-sm-3 col-md-3">
-                   
-              
-                                  <div class="card" style="width: 18rem;">
-                                              <img class="card-img-top" src="..." alt="Card image cap">
-                                              <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                              </div>
-                                            </div> 
-                                            <div class="card" style="width: 18rem;">
-                                                  <img class="card-img-top" src="..." alt="Card image cap">
-                                                  <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                  </div>
-                                                </div>
-                                                <div class="card" style="width: 18rem;">
-                                                      <img class="card-img-top" src="..." alt="Card image cap">
-                                                      <div class="card-body">
-                                                        <h5 class="card-title">Card title</h5>
-                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                      </div>
-                                                    </div>
-                                                    <div class="card" style="width: 18rem;">
-                                                          <img class="card-img-top" src="..." alt="Card image cap">
-                                                          <div class="card-body">
-                                                            <h5 class="card-title">Card title</h5>
-                                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                          </div>
-                                                        </div>
-                                                       
-                                                            </div>  
-              
-                                </div>                                         
-                </div>
-    {% load static %}
 
+  
+   </div>
+   </div>
+
+  </div>
+</div>
+  <!-- left and right controls for the slide -->
+  <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+  </a>
+  <div>
+
+    
+  </div>
+
+
+<!-- ####################################################################### -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
+{% endfor %}
+ </div>   
+
+{% endblock %}
+
+{% block body2 %}
+</section>
+<section id="collections">
+  <div class="container">
+    <div class="c-1">
+      <div class="c-1-image-holder"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412550/E-commerce%20landing%20page/suit-collections/suit-collection-img_3x.jpg" alt="image"> </div>
+    </div>
+    <div class="c-2">
+      <h2>featured collection</h2>
+      <hr />
+      <div class="c-2-image-holder"> <img class="left" src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412552/E-commerce%20landing%20page/suit-collections/collection-2-img_3x.jpg" alt=""><img class="right" src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412552/E-commerce%20landing%20page/suit-collections/collection-1-img_3x.jpg"
+         alt=""></div>
+      <p class="button">view all collections</p>
+    </div>
+  </div>
+</section>
+<section id="blog">
+  <div class="container">
+    <div class="blog-header">
+      <h2>latest from blog</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+    <div class="blog-content">
+      <div class="blog-1">
+        <div class="blog-1-image-holder"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412548/E-commerce%20landing%20page/blog/blog-2-img_3x.jpg" alt="image"> </div>
+        <div class="blog-1-content">
+          <h4>Lorem Ipsum</h4>
+          <h3>Lorem ipsum dolor sit amet.</h3>
+          <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          <p class="button">view post</p>
+        </div>
+      </div>
+      <div class="blog-2">
+        <div class="blog-2-image-holder"> <img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412543/E-commerce%20landing%20page/blog/blog-1-img_3x.jpg" alt="image"> </div>
+        <div class="blog-2-content">
+          <h4>Lorem Ipsum</h4>
+          <h3>Lorem ipsum dolor sit amet.</h3>
+          <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          <p class="button">view post</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="container">
+    <h4>cantact us</h4>
+    <p>451 awenve 5th street new york city</p>
+    <p>+ (42) 442 4521</p>
+    <p>info.ANkushbanik@gmail.com</p>
+    <p class="email">emailus <span><img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412541/E-commerce%20landing%20page/icons/get_in_touch_1x.png" alt="email-image"></span></p>
+  </div>
+</section>
+<footer>
+  <p class="copy-right"><img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412543/E-commerce%20landing%20page/icons/copy-right-img_1x.png" alt="copy right image" /> 2017 all right recived </p>
+  <p>privacy policy</p>
+  <p>license</p>
+</footer>
+<div class="back-to-top"><a href="#nav"> <img title="Back to Top." src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412541/E-commerce%20landing%20page/icons/back_-_top_1x.png" alt="back to top"></a> </div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+  console.log("hello");
+  if(localStorage.getItem("cart")==null){
+  var cart={};
+  }
+  else
+  {
+  cart=JSON.parse(localStorage.getItem('cart'));
+  document.getElementById('cart').innerHTML=Object.keys(cart).length;
+  
+  }
+  
+  $('.cart').click(function(){
+  var idstr=this.id.toString()
+  if(cart[idstr]!=undefined){
+    cart[idstr]=cart[idstr]+1;
+  }
+  else{
+    cart[idstr]=1;
+    console.log(cart)
+    localStorage.setItem('cart',JSON.stringify(cart))
+  }
+  document.getElementById('cart').innerHTML=Object.keys(cart).length;
+  });
+  </script>
+  {% endblock  %}

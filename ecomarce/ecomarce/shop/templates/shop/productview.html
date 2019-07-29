@@ -1,0 +1,59 @@
+{% extends "shop/base.html"  %}
+
+{% block title %}
+{{product.product_name }}
+{% endblock %}
+{% block Productview %}
+<style>
+
+.product-wrap {
+  margin: 0 auto;
+  width: 350px;
+}
+.product-wrap .product-shot {
+  padding-top: 30px;
+  transition: all 0.5s ease;
+}
+.product-wrap .product-shot:hover {
+  transform: scale(1.1);
+}
+
+
+</style>
+<div class="container my-4">
+    <div class="row">
+
+<div class="col-md-6">
+    <div class="product-warp">
+        <div class="product-shot ">
+            <img src="/media/{{ product.image}}" alt="" width="500px" height="600px">
+          
+        </div>
+    </div>
+   
+</div>
+<div class="col-md-6">
+
+    <div class="product-info">
+ <h2 class="display-6">{{product.product_name}}</h2>
+ <p class="lead">
+     {{product.desc}}
+ </p>
+   <h1 class="lead "><strong>₹
+       {{product.price}}</strong> </h1> 
+    </div>
+    <br><br>
+ <h4>   <label for="">Enter Your pinCode</label></h4>
+    <input type="text" class="form-control form-control" placeholder="check availablelity">
+    <a href=""> <button class="btn btn-info btn-lg my-4">ADD TO CART</button></a>
+    <a href=""> <button class="btn btn-success btn-lg ">BUY NOW </button></a>
+
+</div>
+
+    </div>
+</div>
+
+</div>
+
+
+{% endblock %}
