@@ -139,13 +139,52 @@
 </body>
 
 </html>
-
+<!-- 
 <script>
+
+$(".popcart").popover()
 
 function pop(cart){
 	var popstr="";
 	var i=1;
-	popstr=popstr+
+	popstr=popstr+"<h5> Cart for your items in my shopping cart</h5><div class='mx-2 my-2'>";
+	for(var item in cart){
+		popstr=popstr+"<b>"+i+"</b>";
+        popstr=popstr+document.getElementById('name',item).innerHTML.slice(0,20)+"Qyt:"+ cart[item]+"<br>";
+		i=1;
+
+		popstr=popstr+"<div>";
+		document.getElementById("popcart").setAttribute('data-content',popstr)
+
+
+	}
+	$(".popcart").popover("show")
 }
 
-</script>
+function updateover(cart){
+for(var item in cart){
+	document.getElementById('div',item).innerHTML="<button id='minus"+item+'class="btn btn-primary">plus</button><span id="val'+item+''">"+cart[item]+"</span><button id='minus"+item+'class="btn btn-primary">minus</button> 
+
+
+}
+localStorage.setItem('cart',JSON.stringify("cart"));
+document.getElementById('cart').innerHTML=Object.keys(cart).length;
+
+}
+
+$(".divpr").on("click","button.minus",function(){
+	a=this.id.slice(7,)
+	console.log(a);
+	cart['pr'+a]=cart['pr'+a]-1;
+	cart['pr'+a]=Math.max(0,cart['pr'+a]);
+	document.getElementById('valpr'+a).innerHTML=cart['pr'+a];
+	
+$(".divpr").on("click","button.plus",function(){
+	a=this.id.slice(6,)
+	console.log(a);
+	cart['pr'+a]=cart['pr'+a]+1;
+	cart['pr'+a]=Math.max(0,cart['pr'+a]);
+	document.getElementById('valpr'+a).innerHTML=cart['pr'+a];
+	
+})
+</script> -->
